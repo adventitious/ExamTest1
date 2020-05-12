@@ -21,10 +21,30 @@ namespace examTest1Sol
     /// </summary>
     public partial class MainWindow : Window
     {
+        TeamData db = new TeamData();
         public MainWindow()
         {
             InitializeComponent();
             // hello
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var query = from t in db.Teams
+                        select t.TeamName;
+
+            var teams = query.ToList();
+
+            Lsb_data.ItemsSource = teams;
+            Lsb_data.SelectedItem = 0;
+
+            string teamName = teams.ElementAt(0);
+            
+            var players = from p in db.Players
+                          where p.Team.TeamName == teamName
+                          select p.Name;
+
+            Lsb_data_2.ItemsSource = players.ToList();
         }
     }
 
@@ -51,6 +71,7 @@ namespace examTest1Sol
         public int TeamID { get; set; }
         public string TeamName { get; set; }
         public string Grounds { get; set; }
+        public string ShirtSize { get; set; }
         public virtual List<Player> Players{ get; set; }
     }
 
