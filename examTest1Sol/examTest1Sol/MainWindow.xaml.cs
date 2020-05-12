@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -30,6 +31,7 @@ namespace examTest1Sol
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            /*
             var query = from t in db.Teams
                         select t.TeamName;
 
@@ -45,6 +47,17 @@ namespace examTest1Sol
                           select p.Name;
 
             Lsb_data_2.ItemsSource = players.ToList();
+            */
+
+            Student s1 = new Student() { StudentName = "qwe", StudentNumber = "zzz", GPA = 55.5, StudentImage = "images/sonic.jpg" };
+            Student s2 = new Student() { StudentName = "zxc", StudentNumber = "vvv", GPA = 2.6, StudentImage = "/images/tails.png" };
+
+            List<Student> students = new List<Student>();
+
+            students.Add(s1);
+            students.Add(s2);
+
+            Lsb_Students.ItemsSource = students;
         }
     }
 
@@ -81,5 +94,27 @@ namespace examTest1Sol
 
         public DbSet<Player> Players { get; set; }
         public DbSet<Team> Teams { get; set; }
+    }
+
+    public class Student
+    {
+        public String StudentName{ get; set; }
+        public String StudentNumber{ get; set; }
+        public String StudentImage{ get; set; }
+        public double GPA{ get; set; }
+        public String GPA_Colour 
+        {
+            get
+            {
+                if( GPA >= 40 )
+                {
+                    return "green";
+
+                }   
+                return "red";
+            }
+        }
+
+
     }
 }

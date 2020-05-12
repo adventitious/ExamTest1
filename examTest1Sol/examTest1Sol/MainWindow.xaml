@@ -5,10 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:examTest1Sol"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="MainWindow" Height="450" Width="500" Loaded="Window_Loaded">
+    <Window.Resources>
+        <DataTemplate x:Key="listboxTemplate">
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+
+                <Image Source="{Binding StudentImage}" Width="75"/>
+                <StackPanel>
+                    <TextBlock Text="{Binding StudentName}" Margin="5" FontSize="14"/>
+                    <TextBlock Text="{Binding StudentNumber}" Margin="5" FontSize="14"/>
+                    <TextBlock Text="{Binding GPA}" Background="{Binding GPA_Colour}" Margin="5" FontSize="14"/>
+
+                </StackPanel>
+            </StackPanel>
+
+
+        </DataTemplate>
+
+                      
+                      
+                      
+    </Window.Resources>
     <Grid>
-        <ListBox x:Name="Lsb_data" HorizontalAlignment="Left" Height="328" Margin="54,38,0,0" VerticalAlignment="Top" Width="187"/>
-        <ListBox x:Name="Lsb_data_2" HorizontalAlignment="Left" Height="328" Margin="268,38,0,0" VerticalAlignment="Top" Width="187"/>
+        <ListBox x:Name="Lsb_data" HorizontalAlignment="Left" Height="142" Margin="54,38,0,0" VerticalAlignment="Top" Width="187"/>
+        <ListBox x:Name="Lsb_data_2" HorizontalAlignment="Left" Height="142" Margin="268,38,0,0" VerticalAlignment="Top" Width="187"/>
+        <ListBox x:Name="Lsb_Students" ItemTemplate="{StaticResource listboxTemplate}" HorizontalAlignment="Left" Height="142" Margin="54,203,0,0" VerticalAlignment="Top" Width="187"/>
 
     </Grid>
 </Window>
