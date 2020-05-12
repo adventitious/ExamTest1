@@ -31,7 +31,6 @@ namespace examTest1Sol
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            /*
             var query = from t in db.Teams
                         select t.TeamName;
 
@@ -47,8 +46,7 @@ namespace examTest1Sol
                           select p.Name;
 
             Lsb_data_2.ItemsSource = players.ToList();
-            */
-
+         
             Student s1 = new Student() { StudentName = "qwe", StudentNumber = "zzz", GPA = 55.5, StudentImage = "images/sonic.jpg" };
             Student s2 = new Student() { StudentName = "zxc", StudentNumber = "vvv", GPA = 2.6, StudentImage = "/images/tails.png" };
 
