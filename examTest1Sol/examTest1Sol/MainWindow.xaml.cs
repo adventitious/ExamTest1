@@ -26,4 +26,13 @@ namespace examTest1Sol
             // hello
         }
     }
+
+    public  class UtileFuncs
+    {
+        public int AddTwoNumbers( int a, int b)
+        {
+            return a + b;
+        }
+    }
+
 }
